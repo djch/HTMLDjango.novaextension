@@ -1,0 +1,12 @@
+{
+    "identifier": "djch.HTMLDjango",
+    "name": "HTML Django",
+    "organization": "djch",
+    "description": "Syntax highlighting for Django templates (using Tree Sitter grammar)",
+    "version": "0.1",
+    "license": "MIT",
+    "bugs": "",
+    "repository": "",
+    "keywords": ["django", "python", "dtl", "html", "templates", "syntax"],
+    "categories": ["languages"]
+}

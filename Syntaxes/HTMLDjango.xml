@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="htmldjango">
+    <meta>
+		<name>HTML (Django)</name>
+		<type>markup</type>
+		<parent>html</parent>
+	</meta>
+
+	<detectors>
+		<extension priority="0.2">html</extension>
+		<match-content lines="100" priority="0.9">\{\%</match-content>
+		<match-content lines="100" priority="0.7">\{\{</match-content>
+	</detectors>
+
+    <indentation>
+		<increase>
+			<expression>(?x)
+				(&lt;(?!\?|(?:area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)\b)
+				([-_\.A-Za-z0-9]+)(?=\s|&gt;)\b[^&gt;]*&gt;[^&lt;]*$)
+				|(&lt;!--\s*$)
+			</expression>
+		</increase>
+		<decrease>
+			<expression>(?x)
+				^\s*
+				(&lt;/[-_\.A-Za-z0-9]+\b[^>]*&gt;
+				|--&gt;
+			)</expression>
+		</decrease>
+	</indentation>
+
+    <comments>
+        <single>
+            <starts-with>
+                <expression>\{\#</expression>
+            </starts-with>
+            <ends-with>
+                <expression>\#\}</expression>
+            </ends-with>
+        </single>
+        <multiline>
+			<starts-with>
+				<expression>{% comment %}</expression>
+			</starts-with>
+			<ends-with>
+				<expression>{% endcomment %}</expression>
+			</ends-with>
+		</multiline>
+    </comments>
+
+    <tree-sitter language="htmldjango">
+        <highlights path="highlights.scm" />
+        <injections path="injections.scm" />
+        <!-- <folds path="folds.scm" /> -->
+        <!-- <symbols path="symbols.scm" /> -->
+    </tree-sitter>
+</syntax>
