@@ -5,8 +5,8 @@
     "description": "Syntax highlighting for Django templates (using Tree Sitter grammar)",
     "version": "0.1",
     "license": "MIT",
-    "bugs": "",
-    "repository": "",
+    "bugs": "https://github.com/djch/HTMLDjango.novaextension/issues",
+    "repository": "https://github.com/djch/HTMLDjango.novaextension",
     "keywords": ["django", "python", "dtl", "html", "templates", "syntax"],
     "categories": ["languages"]
 }

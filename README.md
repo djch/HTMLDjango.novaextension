@@ -18,7 +18,7 @@ Let's get started!
 🎈 It can also be helpful to include a screenshot or GIF showing your extension in action:
 -->
 
-![](https://nova.app/images/en/dark/editor.png)
+![Extension preview image](/preview.png)
 
 Firstly, this extension would not exist without this [Tree Sitter grammar created by @interdependence](https://github.com/interdependence/tree-sitter-htmldjango)!
 
