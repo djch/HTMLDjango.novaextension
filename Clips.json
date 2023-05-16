@@ -1,0 +1,25 @@
+{
+  "clips" : [
+    {
+      "content" : "{% block ${0:name} %}\n$1\n{% endblock %}",
+      "name" : "block tags",
+      "scope" : "editor",
+      "syntax" : "htmldjango",
+      "trigger" : "block"
+    },
+    {
+      "content" : "{% if ${0:condition} %}$1{% else %}$2{% endif %}",
+      "name" : "if tags",
+      "scope" : "editor",
+      "syntax" : "htmldjango",
+      "trigger" : "if"
+    },
+    {
+      "content" : "{% for ${0:object} in ${1:objects} %}\n\t$2\n{% empty %}\n\t$3\n{% endfor %}",
+      "name" : "for tags",
+      "scope" : "editor",
+      "syntax" : "htmldjango",
+      "trigger" : "for"
+    }
+  ]
+}
