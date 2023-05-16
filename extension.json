@@ -3,12 +3,12 @@
     "name": "HTML Django",
     "organization": "djch",
     "description": "Syntax highlighting for Django templates (using Tree Sitter grammar)",
-    "version": "0.2",
+    "version": "1.0.0",
     "license": "MIT",
     "bugs": "https://github.com/djch/HTMLDjango.novaextension/issues",
     "repository": "https://github.com/djch/HTMLDjango.novaextension",
     "keywords": ["django", "python", "dtl", "html", "templates", "syntax"],
-    "categories": ["languages"],
+    "categories": ["languages", "commands", "clips"],
     "main": "main.js",
     "commands": {
     "editor": [

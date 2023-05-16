@@ -1,6 +1,12 @@
-## Version 0.2 (unreleased)
+## Version 1.0
 
-A template-tag switching command has been added. You can use this shortcut to cycle through tag pairs e.g `{{ }}`, `{% %}` and `{# #}` at your selection/cursor position.
+I'm bumping the version up to 1.0, because I've pretty happy using this for the past 6 months or so.
+
+New:
+
+* A template-tag switching command has been added. You can use this shortcut to cycle through tag pairs e.g `{{ }}`, `{% %}` and `{# #}` at your selection/cursor position. Currently bound to `cmd-shift->`, like the Rails extension that inspured it.
+
+* Some Clips are now included for **if tags**, **for tags** and **block tags**. You should now be able to type e.g. *for*, hit the `tab` key and it'll autocomplete into a full set of tags with tab-indexed insertion points.
 
 
 ## Version 0.1
