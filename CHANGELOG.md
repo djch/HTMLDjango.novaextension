@@ -1,12 +1,16 @@
+## Version 1.1
+
+Literally just fixing all the README and CHANGELOG typos from my last release.
+
 ## Version 1.0
 
-I'm bumping the version up to 1.0, because I've pretty happy using this for the past 6 months or so.
+I am bumping the version up to 1.0. I've been pretty happy using my extension for the past 6 months or so.
 
 New:
 
-* A template-tag switching command has been added. You can use this shortcut to cycle through tag pairs e.g `{{ }}`, `{% %}` and `{# #}` at your selection/cursor position. Currently bound to `cmd-shift->`, like the Rails extension that inspured it.
+* A template-tag switching command has been added. You can use it to cycle through tag pairs e.g `{{ }}`, `{% %}` and `{# #}` at your selection/cursor position. The shortcut is bound to `cmd-shift->`, like the Rails extension that inspired it.
 
-* Some Clips are now included for **if tags**, **for tags** and **block tags**. You should now be able to type e.g. *for*, hit the `tab` key and it'll autocomplete into a full set of tags with tab-indexed insertion points.
+* Clips are now included for **if tags**, **for tags** and **block tags**. For example. you should be able to type *for*, hit the `tab` key and Nova will autocomplete it into a full set of tags with tab-indexed insertion points.
 
 
 ## Version 0.1
