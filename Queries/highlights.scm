@@ -12,7 +12,6 @@
 ] @bracket
 
 [
- "end"
  (tag_name)
 ] @tag.framework
 
