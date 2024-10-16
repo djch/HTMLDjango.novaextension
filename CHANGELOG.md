@@ -1,3 +1,7 @@
+## Version 1.2
+
+Incorporates the latest changes from [the source grammar by @interdependence](https://github.com/interdependence/tree-sitter-htmldjango)
+
 ## Version 1.1
 
 Literally just fixing all the README and CHANGELOG typos from my last release.
