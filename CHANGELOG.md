@@ -1,3 +1,7 @@
+## Version 1.2.0
+
+Add a minor number to the version scheme in the hopes the Extension Library will pick it up...
+
 ## Version 1.2
 
 Incorporates the latest changes from [the source grammar by @interdependence](https://github.com/interdependence/tree-sitter-htmldjango)
