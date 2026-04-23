@@ -1,0 +1,125 @@
+{# =========================================================================
+   HTML Django syntax-highlighting playground.
+
+   Open this file in Nova with the HTML Django extension enabled. Every
+   section below is a deliberate test of a node type captured by
+   Queries/highlights.scm — if anything looks unhighlighted or off after a
+   grammar update, this is where you'll spot it.
+
+   Sections:
+     1.  Comments (unpaired and paired)
+     2.  Variable output + filters (with and without arguments)
+     3.  String literals in expressions       ← added in grammar update
+     4.  Numbers and booleans
+     5.  Tag names, keywords, keyword operators, operators
+     6.  Paired statements: if / for / block
+     7.  Standard built-in tags (extends, load, include, url, etc.)
+     8.  HTML injection inside and around Django tags
+   ========================================================================= #}
+
+{% load static i18n humanize %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title|default:"Playground" }} | {{ site_name }}</title>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body class="page page--{{ page.slug }}">
+
+{# ---- 1. Comments ---- #}
+
+{# single-line comment: should render entirely as @comment #}
+
+{% comment %}
+    Multi-line / paired comment.
+    Should also render entirely as @comment, including this {{ fake_var }}
+    and this {% fake_tag %} which must NOT be highlighted as real tags.
+{% endcomment %}
+
+{# ---- 2. Variable output + filters ---- #}
+
+<p>Plain variable: {{ username }}</p>
+<p>Chained filters: {{ username|lower|title }}</p>
+<p>Filter with numeric arg: {{ price|floatformat:2 }}</p>
+<p>Filter with string arg: {{ bio|default:"No bio yet." }}</p>
+<p>Filter with variable arg: {{ items|join:separator }}</p>
+<p>Attribute access: {{ user.profile.display_name }}</p>
+
+{# ---- 3. String literals in expressions (new in upstream grammar) ---- #}
+
+{% if status == "published" %}Published{% endif %}
+{% if role != 'admin' %}Not admin{% endif %}
+{% with greeting="Hello, world" %}{{ greeting }}{% endwith %}
+
+{# ---- 4. Numbers and booleans ---- #}
+
+{% if count > 0 %}Some{% endif %}
+{% if ratio >= 1.5 %}High{% endif %}
+{% if is_active == True %}Active{% endif %}
+{% if archived == False %}Live{% endif %}
+{% if value == None %}Missing{% endif %}
+
+{# ---- 5. Keywords, keyword operators, operators ---- #}
+
+{% if user.is_authenticated and user.is_staff %}Staff{% endif %}
+{% if not user.is_banned or override %}Allowed{% endif %}
+{% if item in basket %}In basket{% endif %}
+{% if item not in basket %}Missing{% endif %}
+{% if value is None %}Null{% endif %}
+{% if value is not None %}Has value{% endif %}
+
+{# ---- 6. Paired statements: if / for / block ---- #}
+
+{% block content %}
+    {% if products %}
+        <ul>
+        {% for product in products %}
+            <li>
+                {{ forloop.counter }}. {{ product.name|truncatechars:40 }}
+                — {{ product.price|floatformat:2 }}
+                {% if product.on_sale %}<strong>Sale!</strong>{% endif %}
+            </li>
+        {% empty %}
+            <li>No products.</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nothing here yet.</p>
+    {% endif %}
+{% endblock content %}
+
+{# ---- 7. Built-in tags: url, include, cycle, firstof, spaceless ---- #}
+
+<a href="{% url 'product-detail' slug=product.slug %}">View</a>
+
+{% include "partials/_footer.html" with year=current_year only %}
+
+{% for row in rows %}
+    <tr class="{% cycle 'odd' 'even' %}">
+        <td>{% firstof row.label row.name "Untitled" %}</td>
+    </tr>
+{% endfor %}
+
+{% spaceless %}
+    <div>
+        <span>{{ tight }}</span>
+    </div>
+{% endspaceless %}
+
+{# ---- 8. HTML injection around Django tags ---- #}
+
+<form method="post" action="{% url 'subscribe' %}" data-user="{{ user.id }}">
+    {% csrf_token %}
+    <label for="email">{% translate "Email" %}</label>
+    <input type="email"
+           id="email"
+           name="email"
+           value="{{ form.email.value|default_if_none:'' }}"
+           {% if form.email.errors %}aria-invalid="true"{% endif %}>
+    <button type="submit">{% translate "Sign up" %}</button>
+</form>
+
+</body>
+</html>

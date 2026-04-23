@@ -1,3 +1,7 @@
+## Version 1.3.0
+
+Incorporates the latest changes from [the source grammar by @interdependence](https://github.com/interdependence/tree-sitter-htmldjango), including support for string literals in expressions and a tree-sitter 0.25.1 bump.
+
 ## Version 1.2.0
 
 Add a minor number to the version scheme in the hopes the Extension Library will pick it up...
