@@ -22,9 +22,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>{{ page.title|default:"Playground" }} | {{ site_name }}</title>
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <meta charset="utf-8">
+  <title>{{ page.title|default:"Playground" }} | {{ site_name }}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
 <body class="page page--{{ page.slug }}">
 
@@ -33,9 +33,9 @@
 {# single-line comment: should render entirely as @comment #}
 
 {% comment %}
-    Multi-line / paired comment.
-    Should also render entirely as @comment, including this {{ fake_var }}
-    and this {% fake_tag %} which must NOT be highlighted as real tags.
+  Multi-line / paired comment.
+  Should also render entirely as @comment, including this {{ fake_var }}
+  and this {% fake_tag %} which must NOT be highlighted as real tags.
 {% endcomment %}
 
 {# ---- 2. Variable output + filters ---- #}
@@ -73,21 +73,21 @@
 {# ---- 6. Paired statements: if / for / block ---- #}
 
 {% block content %}
-    {% if products %}
-        <ul>
-        {% for product in products %}
-            <li>
-                {{ forloop.counter }}. {{ product.name|truncatechars:40 }}
-                — {{ product.price|floatformat:2 }}
-                {% if product.on_sale %}<strong>Sale!</strong>{% endif %}
-            </li>
-        {% empty %}
-            <li>No products.</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Nothing here yet.</p>
-    {% endif %}
+  {% if products %}
+    <ul>
+    {% for product in products %}
+      <li>
+        {{ forloop.counter }}. {{ product.name|truncatechars:40 }}
+        — {{ product.price|floatformat:2 }}
+        {% if product.on_sale %}<strong>Sale!</strong>{% endif %}
+      </li>
+    {% empty %}
+      <li>No products.</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nothing here yet.</p>
+  {% endif %}
 {% endblock content %}
 
 {# ---- 7. Built-in tags: url, include, cycle, firstof, spaceless ---- #}
@@ -97,28 +97,28 @@
 {% include "partials/_footer.html" with year=current_year only %}
 
 {% for row in rows %}
-    <tr class="{% cycle 'odd' 'even' %}">
-        <td>{% firstof row.label row.name "Untitled" %}</td>
-    </tr>
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{% firstof row.label row.name "Untitled" %}</td>
+  </tr>
 {% endfor %}
 
 {% spaceless %}
-    <div>
-        <span>{{ tight }}</span>
-    </div>
+  <div>
+    <span>{{ tight }}</span>
+  </div>
 {% endspaceless %}
 
 {# ---- 8. HTML injection around Django tags ---- #}
 
 <form method="post" action="{% url 'subscribe' %}" data-user="{{ user.id }}">
-    {% csrf_token %}
-    <label for="email">{% translate "Email" %}</label>
-    <input type="email"
-           id="email"
-           name="email"
-           value="{{ form.email.value|default_if_none:'' }}"
-           {% if form.email.errors %}aria-invalid="true"{% endif %}>
-    <button type="submit">{% translate "Sign up" %}</button>
+  {% csrf_token %}
+  <label for="email">{% translate "Email" %}</label>
+  <input type="email"
+         id="email"
+         name="email"
+         value="{{ form.email.value|default_if_none:'' }}"
+         {% if form.email.errors %}aria-invalid="true"{% endif %}>
+  <button type="submit">{% translate "Sign up" %}</button>
 </form>
 
 </body>
