@@ -1,3 +1,7 @@
+## Version 1.3.1
+
+Re-signing the dylib and avoiding a validation issue with Clips.
+
 ## Version 1.3.0
 
 Incorporates the latest changes from [the source grammar by @interdependence](https://github.com/interdependence/tree-sitter-htmldjango), including support for string literals in expressions and a tree-sitter 0.25.1 bump.
