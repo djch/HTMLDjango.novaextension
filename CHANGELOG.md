@@ -1,3 +1,7 @@
+## Version 1.3.2
+
+Improves syntax auto-detection so Django-style template tags in YAML and other structured files are less likely to be erroneously detected.
+
 ## Version 1.3.1
 
 Re-signing the dylib and avoiding a validation issue with Clips.
