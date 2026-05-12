@@ -7,9 +7,10 @@
 	</meta>
 
 	<detectors>
-		<extension priority="0.2">html</extension>
-		<match-content lines="100" priority="0.9">\{\%</match-content>
-		<match-content lines="100" priority="0.7">\{\{</match-content>
+		<extension priority="0.2">htm,html,shtml,xhtml</extension>
+		<match-content lines="3" priority="0.95">(?m)^\s*\{%\s*(?:load|extends)\b</match-content>
+		<match-content lines="100" priority="low">\{%\s*[A-Za-z_][A-Za-z0-9_]*\b</match-content>
+		<match-content lines="100" priority="low">\{\{\s*[A-Za-z_][A-Za-z0-9_\.]*</match-content>
 	</detectors>
 
     <indentation>
